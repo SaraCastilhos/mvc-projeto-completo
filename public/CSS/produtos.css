@@ -1,0 +1,102 @@
+.btn-add {
+    background: #28a745;
+    color: white;
+}
+
+.btn-edit {
+    background: #007bff;
+    color: white;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-save {
+    background: #17a2b8;
+    color: white;
+}
+
+.mensagem {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.topo-acoes {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.topo-acoes form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.campo-busca {
+    min-width: 260px;
+}
+
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.tabela-produtos th {
+    background: #f8f9fa;
+    font-weight: 600;
+    padding: 14px;
+    border-bottom: 2px solid #ddd;
+    text-align: left;
+}
+
+.tabela-produtos td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela-produtos tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.tabela-produtos tbody tr:hover {
+    background: #f1f7ff;
+}
+
+.acoes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.vazio {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+
+    .tabela-produtos td,
+    .tabela-produtos th {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .tabela-produtos input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
