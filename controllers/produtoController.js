@@ -5,19 +5,36 @@ const produtos = require('../models/produtoModel');
 
 // PÁGINAS ESTÁTICAS
 
-// Renderiza a página inicial
+/**
+ * Renderiza a página inicial (Home).
+ * @param {import('express').Request} req - Requisição.
+ * @param {import('express').Response} res - Resposta que renderiza a view 'home'.
+ */
 exports.home = (req, res) => res.render('home');
 
-// Renderiza a página sobre
+/**
+ * Renderiza a página Sobre.
+ * @param {import('express').Request} req - Requisição.
+ * @param {import('express').Response} res - Resposta que renderiza a view 'sobre'.
+ */
 exports.sobre = (req, res) => res.render('sobre');
 
-// Renderiza a página contato
+/**
+ * Renderiza a página Contato.
+ * @param {import('express').Request} req - Requisição.
+ * @param {import('express').Response} res - Resposta que renderiza a view 'contato'.
+ */
 exports.contato = (req, res) => res.render('contato');
 
 
 // LISTAR PRODUTOS
 
-// Função responsável por mostrar a tela de produtos
+/**
+ * Lista os produtos, aplicando filtro de busca por nome quando informado.
+ * Também repassa mensagens de feedback e o índice em edição vindos da query string.
+ * @param {import('express').Request} req - Requisição; aceita `req.query.msg`, `req.query.edit` e `req.query.busca`.
+ * @param {import('express').Response} res - Resposta que renderiza a view 'produtos'.
+ */
 exports.listar = (req, res) => {
 
     // Captura a mensagem enviada pela URL
@@ -50,7 +67,11 @@ exports.listar = (req, res) => {
 
 // ADICIONAR PRODUTO
 
-// Função responsável por cadastrar novo produto
+/**
+ * Cadastra um novo produto a partir dos dados do formulário.
+ * @param {import('express').Request} req - Requisição contendo `nome` e `preco` no corpo.
+ * @param {import('express').Response} res - Redireciona de volta para '/produtos' com mensagem de status.
+ */
 exports.adicionar = (req, res) => {
 
     // Pega nome e preço enviados pelo formulário
@@ -74,7 +95,11 @@ exports.adicionar = (req, res) => {
 
 // EXCLUIR PRODUTO
 
-// Remove um produto pelo índice
+/**
+ * Remove um produto do array pelo índice informado na URL.
+ * @param {import('express').Request} req - Requisição; espera `req.params.index`.
+ * @param {import('express').Response} res - Redireciona de volta para '/produtos' com mensagem de status.
+ */
 exports.excluir = (req, res) => {
 
     // Converte o índice para número
@@ -95,8 +120,12 @@ exports.excluir = (req, res) => {
 
 // ATIVAR MODO EDIÇÃO
 
-// Apenas envia o índice para a URL
-// para que a view saiba qual item editar
+/**
+ * Redireciona para a listagem de produtos ativando o formulário de edição
+ * para o índice informado.
+ * @param {import('express').Request} req - Requisição; espera `req.params.index`.
+ * @param {import('express').Response} res - Redireciona para '/produtos?edit=<index>'.
+ */
 exports.ativarEdicao = (req, res) => {
 
     // Pega índice da URL
@@ -110,7 +139,11 @@ exports.ativarEdicao = (req, res) => {
 
 // SALVAR EDIÇÃO
 
-// Atualiza um produto já existente
+/**
+ * Atualiza os dados de um produto já existente.
+ * @param {import('express').Request} req - Requisição; espera `req.params.index`, `nome` e `preco` no corpo.
+ * @param {import('express').Response} res - Redireciona de volta para '/produtos' com mensagem de status.
+ */
 exports.salvarEdicao = (req, res) => {
 
     // Captura índice do produto

@@ -7,13 +7,15 @@
 
 Aplicação web desenvolvida como atividade prática para a disciplina **Criação de Sites**, aplicando o padrão de arquitetura **MVC (Model-View-Controller)** com **Node.js** e **Express**. O sistema permite cadastrar, listar, editar, excluir e buscar produtos, e protege todas as páginas internas com **autenticação de usuários via sessão** (`express-session`).
 
+Este repositório consolida em um único projeto as três etapas desenvolvidas ao longo da disciplina: CRUD de produtos, autenticação com sessão, e documentação profissional (JSDoc + README).
+
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **Runtime:** Node.js
 - **Framework Web:** Express
-- **Template Engine:** EJS
+- **Template Engine:** EJS (com partials para elementos reutilizáveis, como a navegação)
 - **Sessão:** express-session
 - **Front-end:** HTML5 + CSS3 modular
 
@@ -38,6 +40,10 @@ Aplicação web desenvolvida como atividade prática para a disciplina **Criaç�
 - [x] Feedback ao usuário via mensagens de sucesso/erro
 - [x] Armazenamento em memória (dados resetam ao reiniciar o servidor)
 
+### Documentação
+- [x] JSDoc em todos os Controllers e Models (`authController`, `produtoController`, `userController`, `userModel`)
+- [x] README profissional com badges, stack, guia de instalação e variáveis de ambiente
+
 ---
 
 ## 📦 Como Executar o Projeto
@@ -50,24 +56,22 @@ Aplicação web desenvolvida como atividade prática para a disciplina **Criaç�
 
 1. Clone o repositório
 ```bash
-   git clone https://github.com/SaraCastilhos/mvc-projeto-completo.git
-   cd mvc-projeto-completo
+git clone https://github.com/SaraCastilhos/mvc-projeto-completo.git
+cd mvc-projeto-completo
 ```
 
 2. Instale as dependências
 ```bash
-   npm install
+npm install
 ```
 
 3. Inicie o servidor
 ```bash
-   npm start
+npm start
 ```
 
 4. Abra o navegador e acesse:
-
-http://localhost:3000
-
+   http://localhost:3000
    Você será redirecionado automaticamente para a tela de login.
 
 ---
@@ -90,7 +94,7 @@ PORT=3000
 | E-mail             | Senha    |
 |--------------------|----------|
 | admin@email.com    | 123456   |
-| joao@email.com      | joao123  |
+| joao@email.com     | joao123  |
 
 > As senhas estão armazenadas em texto puro, apenas para fins didáticos.
 
@@ -98,39 +102,41 @@ PORT=3000
 
 ## 📁 Estrutura do Projeto (MVC)
 
-mvc-projeto-completo/
-├── controllers/
-│ ├── produtoController.js
-│ ├── authController.js
-│ └── userController.js
-├── middlewares/
-│ └── auth.js
-├── models/
-│ ├── produtoModel.js
-│ └── userModel.js
-├── public/
-│ └── CSS/
-│ ├── global.css
-│ ├── home.css
-│ ├── produtos.css
-│ ├── contato.css
-│ └── sobre.css
-├── routes/
-│ ├── produtoRoutes.js
-│ ├── authRoutes.js
-│ └── userRoutes.js
-├── views/
-│ ├── home.ejs
-│ ├── sobre.ejs
-│ ├── contato.ejs
-│ ├── produtos.ejs
-│ ├── login.ejs
-│ └── users.ejs
-├── app.js
-├── package.json
-├── .gitignore
-└── README.md
-
+         mvc-projeto-completo/
+         ├── controllers/
+         │ ├── produtoController.js
+         │ ├── authController.js
+         │ └── userController.js
+         ├── middlewares/
+         │ └── auth.js
+         ├── models/
+         │ ├── produtoModel.js
+         │ └── userModel.js
+         ├── public/
+         │ └── CSS/
+         │ ├── global.css
+         │ ├── home.css
+         │ ├── login.css
+         │ ├── produtos.css
+         │ ├── contato.css
+         │ └── sobre.css
+         ├── routes/
+         │ ├── produtoRoutes.js
+         │ ├── authRoutes.js
+         │ └── userRoutes.js
+         ├── views/
+         │ ├── partials/
+         │ │ └── nav.ejs
+         │ ├── home.ejs
+         │ ├── sobre.ejs
+         │ ├── contato.ejs
+         │ ├── produtos.ejs
+         │ ├── login.ejs
+         │ └── users.ejs
+         ├── app.js
+         ├── package.json
+         ├── .gitignore
+         └── README.md
 
 ---
 
@@ -139,6 +145,7 @@ mvc-projeto-completo/
 - **Armazenamento em memória:** os dados de produtos e usuários são perdidos ao reiniciar o servidor.
 - **Middleware de proteção:** todas as rotas registradas após o middleware de autenticação em `app.js` exigem login.
 - **Arquivos estáticos:** CSS servido via `express.static`.
+- **Navegação:** o menu (`nav`) é um partial EJS (`views/partials/nav.ejs`), reaproveitado em todas as páginas autenticadas para manter consistência visual.
 
 ---
 
