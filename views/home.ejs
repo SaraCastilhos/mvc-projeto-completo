@@ -13,14 +13,9 @@
 
     <div class="container">
 
-        <nav>
-            <a href="/">Home</a>
-            <a href="/sobre">Sobre</a>
-            <a href="/contato">Contato</a>
-            <a href="/produtos">Produtos</a>
-        </nav>
+      <%- include('partials/nav') %>
 
-        <h1>Bem-vindo ao Sistema de Produtos</h1>
+        <h1>Bem-vindo ao Sistema de Produtos<% if (user) { %>, <%= user.name %><% } %></h1>
         <p>
             Utilize o menu acima para navegar entre as páginas e testar as funcionalidades do sistema.
         </p>

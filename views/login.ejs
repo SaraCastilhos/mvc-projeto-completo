@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <style>
-    body { font-family: Arial; max-width: 400px; margin: 50px auto; }
-    input, button { display: block; width: 100%; margin: 10px 0; padding: 8px; }
-    .error { color: red; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/CSS/global.css">
+    <link rel="stylesheet" href="/CSS/login.css">
 </head>
-<body>
-  <h2>🔐 Acesso ao Sistema</h2>
-  <% if (error) { %>
-    <p class="error"><%= error %></p>
-  <% } %>
-  <form action="/login" method="POST">
-    <input type="email" name="email" placeholder="Seu e-mail" required autofocus>
-    <input type="password" name="password" placeholder="Sua senha" required>
-    <button type="submit">Entrar</button>
-  </form>
-  <hr>
-  <p><strong>Credenciais de teste:</strong><br>
-  admin@email.com / 123456<br>
-  joao@email.com / joao123</p>
+<body class="login-page">
+    <div class="login-container">
+        <h2>🔐 Acesso ao Sistema</h2>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Seu e-mail" required autofocus>
+            <input type="password" name="password" placeholder="Sua senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+
+        <hr>
+
+        <p class="credenciais">
+            <strong>Credenciais de teste:</strong><br>
+            admin@email.com / 123456<br>
+            joao@email.com / joao123
+        </p>
+    </div>
 </body>
 </html>
